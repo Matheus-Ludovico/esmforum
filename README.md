@@ -6,6 +6,8 @@ Práticas de XP: [análise de design simples](DESIGN_SIMPLES.md) e [planejamento
 
 Requisitos: [três histórias de usuário com critérios de aceitação e priorização](HISTORIAS.md).
 
+Detalhamento: [caso de uso de busca de perguntas por palavra-chave](CASO_DE_USO.md).
+
 O **ESM Forum** é um sistema minimalista de demonstração do livro [Engenharia de Software Moderna](https://engsoftmoderna.info). 
 Ele é um fórum simples de perguntas e respostas. O objetivo é permitir que os alunos tenham um primeiro contato prático com os conceitos estudados no livro. Ou seja:
 
