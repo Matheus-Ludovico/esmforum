@@ -58,7 +58,7 @@ Modelo conceitual para busca, tags e perfil. O backend atual é procedural: Perg
 
 As multiplicidades indicam quantos objetos podem estar associados: cada resposta pertence a uma pergunta; usuários podem ter várias contribuições; perguntas e tags têm associação muitos-para-muitos. O autor é opcional (0..1) apenas para acomodar conteúdo legado de autoria desconhecida; novas perguntas e respostas exigem exatamente um autor autenticado. As chaves estrangeiras são representadas pelas associações para evitar duplicação visual. Perfil/histórico são consultas sobre Usuario, Pergunta e Resposta, e busca é uma operação: não precisam de classes persistentes próprias. Campos de autenticação e tabelas de associação ficam fora deste sketch.
 
-[Fonte Mermaid: classes.mmd](docs/diagramas/classes.mmd)
+O código-fonte Mermaid está no bloco abaixo.
 
 ```mermaid
 classDiagram
@@ -95,7 +95,7 @@ classDiagram
 
 Interação do [UC-01](CASO_DE_USO.md) entre visitante, interface, API, modelo e banco. Inclui consulta vazia, resultado vazio e falha de processamento. As mensagens nomeiam responsabilidades propostas, sem impor novas classes JavaScript ou um contrato HTTP definitivo. Um filtro por tag só se aplica quando a extensão de tags estiver disponível.
 
-[Fonte Mermaid: sequencia-busca.mmd](docs/diagramas/sequencia-busca.mmd)
+O código-fonte Mermaid está no bloco abaixo.
 
 ```mermaid
 sequenceDiagram
@@ -143,7 +143,7 @@ sequenceDiagram
 
 Representação leve do fluxo de atividades com `flowchart` do Mermaid: círculos marcam início/fim, retângulos representam atividades e diamantes representam decisões. Os caminhos incluem alterar, limpar e repetir a busca. A decisão de falha resume erros de comunicação ou processamento. Não há atividades paralelas obrigatórias neste caso de uso; por isso não foram adicionados forks/joins.
 
-[Fonte Mermaid: atividades-busca.mmd](docs/diagramas/atividades-busca.mmd)
+O código-fonte Mermaid está no bloco abaixo.
 
 ```mermaid
 flowchart TD
@@ -178,7 +178,7 @@ flowchart TD
 
 Estado derivado da quantidade de respostas, sem necessidade de armazenar um atributo de estado adicional. A criação bem-sucedida inicia a pergunta sem respostas; a primeira resposta muda seu estado e as seguintes o mantêm. Falhas ao cadastrar uma resposta não alteram esse estado. Busca, leitura do perfil e categorização não mudam a condição de ter respostas. Não há estado final nem transição de exclusão: encerramento, exclusão e marcação como resolvida não foram solicitados. Perguntas já existentes têm o estado determinado por suas respostas atuais.
 
-[Fonte Mermaid: estados-pergunta.mmd](docs/diagramas/estados-pergunta.mmd)
+O código-fonte Mermaid está no bloco abaixo.
 
 ```mermaid
 stateDiagram-v2
@@ -199,4 +199,4 @@ stateDiagram-v2
     end note
 ```
 
-Os blocos acima reproduzem os arquivos `.mmd`; ao editar um diagrama, atualize também seu bloco no README. Notação baseada na documentação oficial do Mermaid: [classes](https://mermaid.js.org/syntax/classDiagram.html), [sequência](https://mermaid.js.org/syntax/sequenceDiagram.html), [fluxogramas](https://mermaid.js.org/syntax/flowchart.html) e [estados](https://mermaid.js.org/syntax/stateDiagram.html).
+Os blocos Mermaid acima são as fontes dos diagramas; edite-os diretamente neste README. Notação baseada na documentação oficial do Mermaid: [classes](https://mermaid.js.org/syntax/classDiagram.html), [sequência](https://mermaid.js.org/syntax/sequenceDiagram.html), [fluxogramas](https://mermaid.js.org/syntax/flowchart.html) e [estados](https://mermaid.js.org/syntax/stateDiagram.html).
