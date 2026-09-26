@@ -4,6 +4,8 @@ Para configurar os forks desta entrega e executar backend e frontend, consulte [
 
 Práticas de XP: [análise de design simples](DESIGN_SIMPLES.md) e [planejamento de pair programming](PAIR_PROGRAMMING.md).
 
+Qualidade do código: [análise SOLID do backend](ANALISE_SOLID.md).
+
 Requisitos: [três histórias de usuário com critérios de aceitação e priorização](HISTORIAS.md).
 
 Detalhamento: [caso de uso de busca de perguntas por palavra-chave](CASO_DE_USO.md).
