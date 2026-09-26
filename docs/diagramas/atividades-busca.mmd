@@ -1,0 +1,26 @@
+flowchart TD
+    inicio((Início)) --> exibir[Exibir listagem e campo de busca]
+    exibir --> informar[Visitante informa ou altera a consulta]
+    informar --> enviar[Acionar busca e exibir carregamento]
+    enviar --> vazia{Consulta vazia ou só espaços?}
+    vazia -->|Sim| todas[Selecionar todas as perguntas]
+    vazia -->|Não| buscar[Buscar trecho sem diferenciar maiúsculas e minúsculas]
+    todas --> filtro[Aplicar filtro por tag, se ativo]
+    buscar --> filtro
+    filtro --> consultar[Executar consulta parametrizada somente de leitura]
+    consultar --> sucesso{Consulta concluída sem falha?}
+    sucesso -->|Não| erro[Encerrar carregamento e informar falha]
+    erro --> repetir{Ação do visitante?}
+    repetir -->|Tentar novamente| enviar
+    repetir -->|Alterar consulta| informar
+    repetir -->|Abandonar| fim((Fim))
+    sucesso -->|Sim| encerrar[Encerrar carregamento e manter consulta visível]
+    encerrar --> encontrados{Há perguntas correspondentes?}
+    encontrados -->|Sim| resultados[Exibir resultados]
+    encontrados -->|Não| vazio[Exibir Nenhuma pergunta encontrada]
+    resultados --> acao{Ação do visitante?}
+    vazio --> acao
+    acao -->|Alterar consulta| informar
+    acao -->|Limpar busca| limpar[Esvaziar campo de busca]
+    limpar --> enviar
+    acao -->|Encerrar consulta| fim

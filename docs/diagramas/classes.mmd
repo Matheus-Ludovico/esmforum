@@ -1,0 +1,28 @@
+classDiagram
+    direction LR
+
+    class Usuario {
+        +int id_usuario
+        +string nome_exibicao
+    }
+    class Pergunta {
+        +int id_pergunta
+        +string texto
+    }
+    class Resposta {
+        +int id_resposta
+        +string texto
+    }
+    class Tag {
+        +int id_tag
+        +string nome
+    }
+
+    Usuario "0..1" -- "0..*" Pergunta : autor de
+    Usuario "0..1" -- "0..*" Resposta : autor de
+    Pergunta "1" -- "0..*" Resposta : recebe
+    Pergunta "0..*" -- "0..*" Tag : categorizada por
+
+    note for Usuario "Identidade persistente proposta para o perfil.<br/>O histórico deriva das relações de autoria."
+    note for Pergunta "Novas contribuições têm exatamente um autor.<br/>0..1 permite autoria desconhecida no legado."
+    note for Tag "Nova classe: tecnologia, carreira, dúvidas-gerais.<br/>Perguntas legadas podem não ter tags."
