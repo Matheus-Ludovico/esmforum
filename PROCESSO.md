@@ -1,8 +1,10 @@
 # Processo de desenvolvimento — ESM Forum
 
-## Situação da configuração
+## Board configurado
 
-Processo e cards preparados. A criação do GitHub Projects aguarda autorização do escopo `project` na conta Matheus-Ludovico; a credencial disponível inicialmente possui acesso aos repositórios, mas não a Projects. As colunas e a ordenação abaixo descrevem a configuração planejada. O link será registrado aqui após a criação e a verificação do board.
+[Abrir o Kanban do ESM Forum no GitHub Projects](https://github.com/users/Matheus-Ludovico/projects/4/views/1).
+
+O projeto é público, está vinculado aos dois repositórios e possui uma visualização Board agrupada pelo campo Status, com as cinco colunas descritas abaixo. Os cinco cards foram criados como itens de rascunho do Projects, com descrição completa, e estão no Backlog, ordenados de 1 a 5. A posição dos cards foi definida manualmente e o campo Prioridade registra essa ordem; ao repriorizar, atualizar tanto o campo quanto a posição no board.
 
 ## Escolha: Kanban
 
