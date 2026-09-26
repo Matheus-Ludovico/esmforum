@@ -4,6 +4,8 @@ Para configurar os forks desta entrega e executar backend e frontend, consulte [
 
 Práticas de XP: [análise de design simples](DESIGN_SIMPLES.md) e [planejamento de pair programming](PAIR_PROGRAMMING.md).
 
+Requisitos: [três histórias de usuário com critérios de aceitação e priorização](HISTORIAS.md).
+
 O **ESM Forum** é um sistema minimalista de demonstração do livro [Engenharia de Software Moderna](https://engsoftmoderna.info). 
 Ele é um fórum simples de perguntas e respostas. O objetivo é permitir que os alunos tenham um primeiro contato prático com os conceitos estudados no livro. Ou seja:
 
