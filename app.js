@@ -13,12 +13,15 @@ app.use((req, res, next) => {
 });
 
 app.get('/', (req, res) => {
+  if (req.query.q !== undefined && typeof req.query.q !== 'string') {
+    return res.status(400).json('A consulta deve ser um texto.');
+  }
   try {
     const perguntas = buscarPerguntas(req.query.q);
     res.send(perguntas);
   }
   catch(erro) {
-    res.status(erro instanceof TypeError ? 400 : 500).json(erro.message); 
+    res.status(500).json(erro.message);
   }
 });
 

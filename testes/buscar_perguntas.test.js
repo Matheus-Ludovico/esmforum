@@ -47,7 +47,10 @@ describe('API HTTP', () => {
   let url;
   beforeAll(async () => {
     servidor = criarApp({}, buscar).listen(0, '127.0.0.1');
-    await new Promise(resolve => servidor.once('listening', resolve));
+    await new Promise((resolve, reject) => {
+      servidor.once('listening', resolve);
+      servidor.once('error', reject);
+    });
     url = `http://127.0.0.1:${servidor.address().port}`;
   });
   afterAll(done => { servidor.close(done); });
@@ -60,4 +63,18 @@ describe('API HTTP', () => {
   test('consulta estruturada retorna 400', async () => {
     expect((await fetch(`${url}/?q[]=a`)).status).toBe(400);
   });
+});
+
+test.each([Error, TypeError])('falha interna %p retorna HTTP 500 para consulta válida', async ClasseErro => {
+  const servidor = criarApp({}, () => { throw new ClasseErro('Falha interna'); }).listen(0, '127.0.0.1');
+  try {
+    await new Promise((resolve, reject) => {
+      servidor.once('listening', resolve);
+      servidor.once('error', reject);
+    });
+    const resposta = await fetch(`http://127.0.0.1:${servidor.address().port}/?q=Java`);
+    expect(resposta.status).toBe(500);
+  } finally {
+    if (servidor.listening) await new Promise(resolve => servidor.close(resolve));
+  }
 });
